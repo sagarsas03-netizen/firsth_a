@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    let user={
+        name:"sagar",
+        address:{city:"kohima",  pincode :3477},
+        roll:77,
+        gender:"male"
+       
+
+    };
+    console.log(user);
+    let user1=user;
+    //it is passing the refrerence
+    user1.name="aditya";
+    console.log(user);
+    console.log(user1);
+    //shallow copy
+    let user2={
+        ...user
+    }
+    //problem is shallow copy
+    //innner object or array will pass referenec only
+    //deeep copy
+    let temp= JSON.stringify(user);
+    console.log(temp);
+     
+    let user3=JSON.parse(temp);
+    console.log(user3);
+
+    let user4=structuredClone(user);
+    user.name="aditya narayan singh";
+    user .address.city="Agra";
+    console.log(user);
+    console.log(user4);
+    //Alias Destruction
+    const{name:fullName} =user;
+    //default value destruction
+    const {attendance=false}= user;
+
+
+    let fee={
+        name:"manjesh",
+        total:222,
+        paids:22,
+        due:2
+    }
+
+    //merging the obj
+    let student={
+        ...user,
+        ...fee
+
+    }
+    console.log(student);
+
+
+
+
+</script>
+</body>
+</html>
